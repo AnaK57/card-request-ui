@@ -95,6 +95,7 @@ const SupportForm = () => {
       const response = await axios.post('http://localhost:8080/kafka/card-status/update', statusUpdate);
       setStatusUpdateMessage(response.data);
       setStatusUpdate({ oib: '', status: 'PENDING' });
+      await fetchAllClients();
     } catch (error) {
       setStatusUpdateMessage('Error occurred while updating card status.');
     }
